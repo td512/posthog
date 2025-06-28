@@ -54,8 +54,6 @@ jobs:
               id: build
               uses: docker/build-push-action@v6
               with:
-                  buildx-fallback: false # the fallback is so slow it's better to just fail
                   push: true
                   tags: quay.nz/td512/posthog:latest
                   platforms: linux/arm64,linux/amd64
-                  build-args: COMMIT_HASH=${{ github.sha }}
