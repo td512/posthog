@@ -56,4 +56,4 @@ jobs:
               with:
                   push: true
                   tags: quay.nz/td512/posthog:latest
-                  platforms: linux/arm64,linux/amd64
+                  platforms: linux/amd64
