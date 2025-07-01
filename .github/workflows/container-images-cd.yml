@@ -21,7 +21,7 @@ on:
 jobs:
     posthog_build:
         name: Build and push PostHog
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         permissions:
             id-token: write # allow issuing OIDC tokens for this workflow run
             contents: read # allow at least reading the repo contents, add other permissions if necessary
@@ -41,14 +41,6 @@ jobs:
 
             - name: Set up Depot CLI
               uses: depot/setup-action@b0b1ea4f69e92ebf5dea3f8713a1b0c37b2126a5 # v1
-
-            - name: Login to quay.nz
-              uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
-              with:
-                  registry: quay.nz
-                  username: td512
-                  password: ${{ secrets.QUAY_TOKEN }}
-                  logout: false
 
             - name: Build and push container image
               id: build
